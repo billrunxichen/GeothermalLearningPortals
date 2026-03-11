@@ -1,49 +1,57 @@
 import { motion } from 'motion/react';
-import { ArrowRight, BookOpen, Drill, Factory, Landmark, Network, Target } from 'lucide-react';
+import { ArrowRight, BookOpen, Drill, Landmark, Network } from 'lucide-react';
 
-const chapters = [
+const chapterCards = [
   {
     id: 'introduction',
     number: 'Chapter 1',
     title: 'Basics',
-    summary: 'Thermal energy, home heating, district systems, benefits, and costs.',
-    icon: BookOpen,
-    color: 'from-amber-400 to-orange-500',
-    bullets: ['Start with thermal energy and heat pumps', 'Compare home-scale and network-scale systems']
+    description: 'Learn the thermal-energy fundamentals, heat pump concepts, benefits, and costs that ground the portal.',
+    color: 'from-blue-400 to-cyan-500',
+    icon: BookOpen
   },
   {
     id: 'build-coalition',
     number: 'Chapter 2',
     title: 'Process',
-    summary: 'Coalition-building, opportunity mapping, engagement ladders, and ownership strategy.',
-    icon: Network,
-    color: 'from-emerald-400 to-teal-500',
-    bullets: ['Identify who benefits and who should be involved', 'Move from interest to an organized local coalition']
+    description: 'Carry over the original process pages on coalition-building, opportunity mapping, and community action.',
+    color: 'from-emerald-400 to-green-500',
+    icon: Network
   },
   {
     id: 'site-selection',
     number: 'Chapter 3',
-    title: 'Physical System',
-    summary: 'Site selection, scoping studies, retrofits, and community-facing design decisions.',
-    icon: Drill,
-    color: 'from-sky-400 to-blue-600',
-    bullets: ['Locate viable sites and anchor buildings', 'Understand studies, retrofits, and rollout constraints']
+    title: 'Physical',
+    description: 'Keep the technical scroll-based learning flow around siting, studies, and building integration.',
+    color: 'from-orange-400 to-red-500',
+    icon: Drill
   },
   {
     id: 'case-atlas',
     number: 'Chapter 4',
-    title: 'Cases and Policy',
-    summary: 'Real projects, transferable lessons, and the state-level rules that shape deployment.',
-    icon: Landmark,
-    color: 'from-rose-400 to-red-500',
-    bullets: ['Study working community-scale examples', 'Use precedent to support local advocacy']
+    title: 'Cases',
+    description: 'Add back the case-study and policy material from the static portal without breaking the single-page experience.',
+    color: 'from-purple-400 to-pink-500',
+    icon: Landmark
   }
 ];
 
-const highlights = [
-  { label: 'Learning tracks', value: '4', icon: BookOpen },
-  { label: 'Action stages', value: '12+', icon: Target },
-  { label: 'System scales', value: 'Home to district', icon: Factory }
+const overviewCards = [
+  {
+    tag: 'The Vision',
+    title: 'Redefining Community Comfort',
+    body: 'Buildings do not need to act as isolated energy islands. The merged portal keeps the static site’s framing around shared resources and community-scale thermal systems.'
+  },
+  {
+    tag: 'The Solution',
+    title: 'Recycling Heat Through Networks',
+    body: 'The app still teaches the original React sections, but now it also carries over the district-energy framing and chapter structure from the other site.'
+  },
+  {
+    tag: 'The Impact',
+    title: 'Learning, Planning, and Persuasion',
+    body: 'The result is one scrolling site that supports technical learning, coalition-building, precedent research, and resource discovery in one place.'
+  }
 ];
 
 export function PortalJourney() {
@@ -55,89 +63,73 @@ export function PortalJourney() {
   };
 
   return (
-    <section id="portal-journey" className="scroll-mt-24 bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.9),_rgba(224,231,255,0.65),_rgba(226,232,240,0.9))] px-6 py-24">
-      <div className="mx-auto max-w-7xl">
+    <section id="portal-journey" className="py-24 px-6 bg-gradient-to-br from-slate-50 to-blue-50 scroll-mt-24">
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]"
+          className="mb-12"
         >
-          <div>
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm">
-              <Network className="h-4 w-4 text-emerald-600" />
-              Consolidated Geothermal Learning Portal
-            </div>
-            <h2 className="max-w-4xl font-['Space_Grotesk'] text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-              One portal for the science, organizing, infrastructure, and case studies behind geothermal networks.
-            </h2>
-            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-600">
-              This merged experience keeps the chapter-based structure from the original MIT RE Clinic portal, while
-              preserving the more immersive, interactive learning flow from the React app. Use it as a guided course,
-              a project brief, or a lightweight explorer for community-scale geothermal ideas.
-            </p>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-2xl font-bold text-blue-600">0.0</span>
+            <h2 className="text-4xl font-bold text-slate-800">Portal Overview</h2>
           </div>
-
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-            {highlights.map((item) => {
-              const Icon = item.icon;
-
-              return (
-                <div key={item.label} className="rounded-3xl border border-white/70 bg-white/85 p-5 shadow-[0_20px_60px_-36px_rgba(15,23,42,0.45)] backdrop-blur">
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-white">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div className="text-2xl font-bold text-slate-900">{item.value}</div>
-                  <div className="text-sm text-slate-600">{item.label}</div>
-                </div>
-              );
-            })}
-          </div>
+          <p className="text-lg text-slate-600 italic mb-6">
+            A single scrolling portal that keeps the original app flow while restoring the chapter ideas from the static site.
+          </p>
         </motion.div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          {chapters.map((chapter, index) => {
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {overviewCards.map((card, index) => (
+            <motion.div
+              key={card.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="bg-white rounded-2xl shadow-lg p-8"
+            >
+              <div className="inline-block bg-emerald-700 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-4">
+                {card.tag}
+              </div>
+              <h3 className="text-2xl font-bold text-slate-800 mb-3">{card.title}</h3>
+              <p className="text-slate-700 leading-relaxed">{card.body}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {chapterCards.map((chapter, index) => {
             const Icon = chapter.icon;
 
             return (
               <motion.button
                 key={chapter.id}
                 type="button"
+                onClick={() => scrollToSection(chapter.id)}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                whileHover={{ y: -6 }}
-                onClick={() => scrollToSection(chapter.id)}
-                className="group overflow-hidden rounded-[2rem] border border-slate-200 bg-white text-left shadow-[0_24px_80px_-40px_rgba(15,23,42,0.45)] transition-shadow hover:shadow-[0_30px_90px_-36px_rgba(15,23,42,0.55)]"
+                whileHover={{ y: -4 }}
+                className="text-left bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
-                <div className={`h-2 bg-gradient-to-r ${chapter.color}`} />
-                <div className="p-7">
-                  <div className="mb-5 flex items-start justify-between gap-4">
-                    <div>
-                      <div className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">{chapter.number}</div>
-                      <h3 className="mt-2 font-['Space_Grotesk'] text-3xl font-bold text-slate-900">{chapter.title}</h3>
-                    </div>
-                    <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${chapter.color} text-white shadow-lg`}>
-                      <Icon className="h-7 w-7" />
-                    </div>
+                <div className={`h-24 bg-gradient-to-r ${chapter.color} p-6 text-white flex items-center justify-between`}>
+                  <div>
+                    <div className="text-sm font-semibold uppercase tracking-wide text-white/90">{chapter.number}</div>
+                    <h3 className="text-2xl font-bold">{chapter.title}</h3>
                   </div>
-
-                  <p className="mb-6 text-base leading-relaxed text-slate-600">{chapter.summary}</p>
-
-                  <div className="space-y-3">
-                    {chapter.bullets.map((bullet) => (
-                      <div key={bullet} className="flex items-start gap-3 text-sm text-slate-700">
-                        <div className={`mt-1.5 h-2.5 w-2.5 rounded-full bg-gradient-to-r ${chapter.color}`} />
-                        <span>{bullet}</span>
-                      </div>
-                    ))}
+                  <div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur flex items-center justify-center">
+                    <Icon className="w-6 h-6" />
                   </div>
-
-                  <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slate-900">
-                    Explore this chapter
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </div>
+                <div className="p-6">
+                  <p className="text-slate-700 leading-relaxed mb-4">{chapter.description}</p>
+                  <div className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600">
+                    Jump to section
+                    <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
               </motion.button>

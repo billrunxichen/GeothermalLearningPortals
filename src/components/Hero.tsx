@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { ArrowDown, BookCopy, Database, Flame, Map } from 'lucide-react';
+import { Flame, ArrowDown } from 'lucide-react';
 
 export function Hero() {
   const scrollToContent = () => {
@@ -8,12 +8,6 @@ export function Hero() {
       portalSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
-  const quickLinks = [
-    { label: 'Chapter roadmap', icon: BookCopy },
-    { label: 'Case atlas', icon: Map },
-    { label: 'Resource explorer', icon: Database }
-  ];
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -36,8 +30,8 @@ export function Hero() {
           className="flex items-center justify-center gap-3 mb-6"
         >
           <Flame className="w-12 h-12 text-orange-400" />
-          <h1 className="font-['Space_Grotesk'] text-5xl font-bold text-white md:text-7xl">
-            Geothermal Learning Portal
+          <h1 className="text-6xl md:text-7xl font-bold text-white">
+            Geothermal Networks
           </h1>
         </motion.div>
 
@@ -47,7 +41,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-2xl md:text-3xl text-blue-100 mb-8"
         >
-          A merged guide to heat, networks, community strategy, and project examples
+          Education, organizing, and case studies in one scrolling portal
         </motion.p>
 
         <motion.p
@@ -56,30 +50,9 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-10"
         >
-          Consolidating the two portal builds into one experience: chapter-based learning from the original site,
-          interactive storytelling from the React app, and an explorer mindset for browsing resources and precedent.
+          The original scrolling app remains the core experience. The additional chapter material from the second site is
+          now folded in as matching sections so the portal still feels like one coherent course.
         </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.45 }}
-          className="mb-10 flex flex-wrap items-center justify-center gap-3"
-        >
-          {quickLinks.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <div
-                key={item.label}
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur"
-              >
-                <Icon className="h-4 w-4 text-emerald-300" />
-                {item.label}
-              </div>
-            );
-          })}
-        </motion.div>
 
         <motion.button
           initial={{ opacity: 0 }}
@@ -88,7 +61,7 @@ export function Hero() {
           onClick={scrollToContent}
           className="group bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105"
         >
-          Explore the merged portal
+          Start Learning
           <ArrowDown className="inline-block ml-2 w-5 h-5 group-hover:translate-y-1 transition-transform" />
         </motion.button>
       </div>

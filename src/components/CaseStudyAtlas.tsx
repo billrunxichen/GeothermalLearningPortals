@@ -1,132 +1,125 @@
 import { motion } from 'motion/react';
-import { ArrowUpRight, DatabaseZap, Landmark, MapPinned } from 'lucide-react';
+import { ArrowUpRight, Database, FileText, Landmark } from 'lucide-react';
 
-const caseStudies = [
+const featuredCases = [
   {
     name: 'Barnard College',
-    place: 'New York, NY',
-    takeaway: 'Campus-scale retrofit shows how dense urban institutions can anchor loop development.',
+    location: 'New York, NY',
+    summary: 'Campus-scale precedent for dense institutional retrofits and shared thermal infrastructure.',
     href: 'https://drive.google.com/file/d/1eq-NKvHSiF0MLwADtQay20guKMWDcexA/view'
   },
   {
     name: 'Eastern Emerald',
-    place: 'Queens, NY',
-    takeaway: 'Mixed-use development demonstrates geothermal fit in large neighborhood redevelopment.',
+    location: 'Queens, NY',
+    summary: 'Shows how neighborhood-scale redevelopment can integrate geothermal systems early.',
     href: 'https://drive.google.com/file/d/1JVdo8NymRNJV5Y4E5EWO5ViT7gonu9Zi/view'
   },
   {
-    name: 'GE Research Campus',
-    place: 'Niskayuna, NY',
-    takeaway: 'Institutional site with specialized buildings highlights phased decarbonization potential.',
-    href: 'https://drive.google.com/file/d/1n-TIt-W4VQVlCsgHfHkzq2pEzM-j7TIa/view'
-  },
-  {
     name: 'Gowanus Green',
-    place: 'Brooklyn, NY',
-    takeaway: 'Affordable housing case links equitable development goals with district geothermal planning.',
+    location: 'Brooklyn, NY',
+    summary: 'Connects housing, planning, and equitable development goals to geothermal deployment.',
     href: 'https://drive.google.com/file/d/10_udiUfi1mJ5kKdEJM6iu9LkOi3Y2Zla/view'
   },
   {
     name: 'Ithaca Southside',
-    place: 'Ithaca, NY',
-    takeaway: 'Community-led case underscores the role of local organizing and public-interest framing.',
+    location: 'Ithaca, NY',
+    summary: 'Useful example for community-led organizing and local coalition framing.',
     href: 'https://drive.google.com/file/d/11QbDYpWq4LYuVtkUPAiLWGhfFC-oe_Eq/view'
-  },
-  {
-    name: 'Innovation QNS',
-    place: 'Queens, NY',
-    takeaway: 'Large master-planned site offers a model for integrating geothermal early in project design.',
-    href: 'https://drive.google.com/file/d/1aGgwmzwdmOE63Q4mbpKaoHqD3QELxVpw/view'
   }
 ];
 
-const policyCards = [
+const chapterBlocks = [
   {
+    icon: Database,
     title: 'Community cases',
-    body: 'Use proven examples to answer the first political question: has this worked anywhere like us?',
-    icon: MapPinned
+    body: 'The original Chapter 4 emphasized looking at places where geothermal and district energy already work.'
   },
   {
+    icon: FileText,
     title: 'Database direction',
-    body: 'The original portal pointed toward a database of geothermal neighborhoods. This merged version keeps that idea alive with an atlas-style section and resource explorer.',
-    icon: DatabaseZap
+    body: 'This merged version keeps the database idea, but presents it in a format that matches the original scrolling app.'
   },
   {
+    icon: Landmark,
     title: 'State policy',
-    body: 'Local success still depends on franchise rules, utility regulation, and public financing pathways at the state level.',
-    icon: Landmark
+    body: 'The policy material is preserved so the portal still supports advocacy, not only technical education.'
   }
 ];
 
 export function CaseStudyAtlas() {
   return (
-    <section id="case-atlas" className="scroll-mt-24 bg-[linear-gradient(180deg,#fff7ed_0%,#ffffff_38%,#ecfeff_100%)] px-6 py-24">
-      <div className="mx-auto max-w-7xl">
+    <section id="case-atlas" className="py-24 px-6 bg-white scroll-mt-24">
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]"
+          className="mb-12"
         >
-          <div className="rounded-[2rem] bg-slate-950 p-8 text-white shadow-[0_30px_100px_-40px_rgba(15,23,42,0.7)]">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-amber-200">
-              <MapPinned className="h-4 w-4" />
-              Chapter 4 cases
-            </div>
-            <h2 className="font-['Space_Grotesk'] text-4xl font-bold tracking-tight">
-              Learn from working projects before asking your own community to move.
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-slate-300">
-              The static site devoted an entire chapter to examples and policy. This section keeps that structure and
-              turns it into a quick atlas of transferable precedents for advocacy, planning, and stakeholder outreach.
-            </p>
-
-            <div className="mt-8 grid gap-4">
-              {policyCards.map((card) => {
-                const Icon = card.icon;
-
-                return (
-                  <div key={card.title} className="rounded-3xl border border-white/10 bg-white/5 p-5">
-                    <div className="mb-3 flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/10">
-                        <Icon className="h-5 w-5 text-amber-200" />
-                      </div>
-                      <div className="font-semibold text-white">{card.title}</div>
-                    </div>
-                    <p className="text-sm leading-relaxed text-slate-300">{card.body}</p>
-                  </div>
-                );
-              })}
-            </div>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-2xl font-bold text-blue-600">4.1</span>
+            <h2 className="text-4xl font-bold text-slate-800">Cases and Policy</h2>
           </div>
+          <p className="text-lg text-slate-600 italic mb-6">
+            Key Questions: Where have community-scale geothermal projects worked, and what policy conditions help them succeed?
+          </p>
+          <div className="bg-gradient-to-br from-blue-50 to-emerald-50 p-8 rounded-2xl shadow-lg">
+            <p className="text-slate-700 leading-relaxed">
+              This section brings the original static-site case-study chapter into the scrolling portal. It is meant to
+              preserve the precedent-driven style of the other site without replacing the app’s existing layout.
+            </p>
+          </div>
+        </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {caseStudies.map((study, index) => (
-              <motion.a
-                key={study.name}
-                href={study.href}
-                target="_blank"
-                rel="noreferrer"
+        <div className="grid md:grid-cols-3 gap-6 mb-10">
+          {chapterBlocks.map((block, index) => {
+            const Icon = block.icon;
+
+            return (
+              <motion.div
+                key={block.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: index * 0.05 }}
-                whileHover={{ y: -4 }}
-                className="group rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-[0_24px_80px_-42px_rgba(14,116,144,0.35)]"
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="bg-white border border-slate-200 rounded-2xl shadow-md p-6"
               >
-                <div className="mb-4 flex items-start justify-between gap-3">
-                  <div>
-                    <div className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">{study.place}</div>
-                    <h3 className="mt-2 font-['Space_Grotesk'] text-2xl font-bold text-slate-900">{study.name}</h3>
-                  </div>
-                  <ArrowUpRight className="h-5 w-5 text-slate-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-slate-900" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-emerald-500 flex items-center justify-center mb-4">
+                  <Icon className="w-6 h-6 text-white" />
                 </div>
-                <p className="text-sm leading-relaxed text-slate-600">{study.takeaway}</p>
-              </motion.a>
-            ))}
-          </div>
-        </motion.div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">{block.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{block.body}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {featuredCases.map((item, index) => (
+            <motion.a
+              key={item.name}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.06 }}
+              whileHover={{ y: -4 }}
+              className="bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6"
+            >
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <div>
+                  <div className="text-sm font-semibold uppercase tracking-wide text-slate-500">{item.location}</div>
+                  <h3 className="text-2xl font-bold text-slate-800">{item.name}</h3>
+                </div>
+                <ArrowUpRight className="w-5 h-5 text-blue-600 flex-shrink-0" />
+              </div>
+              <p className="text-slate-700 leading-relaxed">{item.summary}</p>
+            </motion.a>
+          ))}
+        </div>
       </div>
     </section>
   );
